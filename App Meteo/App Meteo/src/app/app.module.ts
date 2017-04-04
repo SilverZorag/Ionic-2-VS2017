@@ -2,7 +2,7 @@
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { WeatherProvider } from '../providers/Weather';
+import { WeatherProvider } from '../providers/weather';
 @NgModule({
   declarations: [
     MyApp,
