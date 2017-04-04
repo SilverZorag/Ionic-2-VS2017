@@ -22,74 +22,71 @@ export class HomePage {
                 public platform: Platform,
                 public weather: WeatherProvider,
 ) {
-    
-  }
-
-    ionViewDidLoad() {
-        //Once the main view loads
-        //and after the platform is ready...
-        this.platform.ready().then(() => {
-            //Setup a resume event listener
-            document.addEventListener('resume', () => {
-                //Get the local weather when the app resumes
+        ionViewDidLoad() {
+            //Once the main view loads
+            //and after the platform is ready...
+            this.platform.ready().then(() => {
+                //Setup a resume event listener
+                document.addEventListener('resume', () => {
+                    //Get the local weather when the app resumes
+                    this.getLocalWeather();
+                });
+                //Populate the form with the current location data
                 this.getLocalWeather();
             });
-            //Populate the form with the current location data
-            this.getLocalWeather();
-        });
-    }
+        }
 
-    refreshPage() {
-        this.showCurrent();
-    }
-
-    getLocalWeather() {
-        let locOptions = { 'maximumAge': 3000, 'timeout': 5000, 'enableHighAccuracy': true };
-        Geolocation.getCurrentPosition(locOptions).then(pos => {
-            //Store our location object for later use
-            this.currentLoc = { 'lat': pos.coords.latitude, 'long': pos.coords.longitude };
-            //and ask for the weather for the current location
+        refreshPage() {
             this.showCurrent();
-        }).catch(e => {
-            console.error('Unable to determine current location');
-            if (e) {
-                console.log('%s: %s', e.code, e.message);
-                console.dir(e);
-            }
-        })
-    }
+        }
 
-    showCurrent() {
-        //clear out the previous array contents
-        this.c_items = [];
-        //Create the loading indicator
-        let loader = this.loadingCtrl.create({
-            content: "Retrieving current conditions..."
-        });
-        //Show the loading indicator
-        loader.present();
-        this.weather.getCurrent(this.currentLoc).then(
-            data => {
-                //Hide the loading indicator
-                loader.dismiss();
-                //Now, populate the array with data from the weather service
-                if (data) {
-                    //We have data, so lets do something with it
-                    this.c_items = this.formatWeatherData(data);
-                } else {
-                    //This really should never happen
-                    console.error('Error retrieving weather data: Data object is empty');
+        getLocalWeather() {
+            let locOptions = { 'maximumAge': 3000, 'timeout': 5000, 'enableHighAccuracy': true };
+            Geolocation.getCurrentPosition(locOptions).then(pos => {
+                //Store our location object for later use
+                this.currentLoc = { 'lat': pos.coords.latitude, 'long': pos.coords.longitude };
+                //and ask for the weather for the current location
+                this.showCurrent();
+            }).catch(e => {
+                console.error('Unable to determine current location');
+                if (e) {
+                    console.log('%s: %s', e.code, e.message);
+                    console.dir(e);
                 }
-            },
-            error => {
-                //Hide the loading indicator
-                loader.dismiss();
-                console.error('Error retrieving weather data');
-                console.dir(error);
-                this.showAlert(error);
-            }
-        );
-    }
+            })
+        }
+
+        showCurrent() {
+            //clear out the previous array contents
+            this.c_items = [];
+            //Create the loading indicator
+            let loader = this.loadingCtrl.create({
+                content: "Retrieving current conditions..."
+            });
+            //Show the loading indicator
+            loader.present();
+            this.weather.getCurrent(this.currentLoc).then(
+                data => {
+                    //Hide the loading indicator
+                    loader.dismiss();
+                    //Now, populate the array with data from the weather service
+                    if (data) {
+                        //We have data, so lets do something with it
+                        this.c_items = this.formatWeatherData(data);
+                    } else {
+                        //This really should never happen
+                        console.error('Error retrieving weather data: Data object is empty');
+                    }
+                },
+                error => {
+                    //Hide the loading indicator
+                    loader.dismiss();
+                    console.error('Error retrieving weather data');
+                    console.dir(error);
+                    this.showAlert(error);
+                }
+            );
+        }
 
     private formatWeatherData(data): any {
         //create a blank array to hold our results
@@ -137,5 +134,8 @@ export class HomePage {
         });
         alert.present();
     }
+  }
+
+   
 
 }

@@ -15,10 +15,6 @@ export class Weather {
     private weatherEndpoint = 'http://api.openweathermap.org/data/2.5/';
     private weatherKey = '65971022274758f2ad9420919c6e49d9';
 
-    constructor(public http: Http) {
-        console.log('Hello Weather Provider');
-    }
-
     getCurrent(loc: any): Promise<any> {
         let url: string = this.makeDataURL(loc, 'weather');
         return this.http.get(url)
@@ -66,6 +62,14 @@ export class Weather {
         console.dir(res);
         return Promise.reject(res.message || res);
     }
+
+
+    constructor(public http: Http) {
+        console.log('Hello Weather Provider');
+
+    }
+
+   
 
 
 }
