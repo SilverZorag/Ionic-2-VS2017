@@ -1,5 +1,6 @@
-﻿import { Injectable } from '@angular/core';
-import { Http , Response } from '@angular/http';
+﻿
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 /*
@@ -9,13 +10,10 @@ import 'rxjs/add/operator/toPromise';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-
 export class Weather {
 
-    private weatherEndpoint = 'http://api.openweathermap.org/data/2.5/';
-    private weatherKey = '';
-
-
+    private weatherEndopoint = 'http://api.openweathermap.org/data/2.5/';
+    private weatherKey = ' ';
 
     constructor(public http: Http) {
         console.log('Hello Weather Provider');
@@ -67,5 +65,6 @@ export class Weather {
         console.dir(res);
         return Promise.reject(res.message || res);
     }
+
 
 }
