@@ -15,10 +15,10 @@ export class HomePage {
     c_items: Array<any> = [];
 
 
-
-    constructor(public nav: NavController,
+    constructor(
                 public alertController: AlertController,
                 public loadingCtrl: LoadingController,
+                public nav: NavController,
                 public platform: Platform,
                 public weather: WeatherProvider,
 ) {

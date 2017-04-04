@@ -18,6 +18,7 @@ export class Weather {
     constructor(public http: Http) {
         console.log('Hello Weather Provider');
     }
+
     getCurrent(loc: any): Promise<any> {
         let url: string = this.makeDataURL(loc, 'weather');
         return this.http.get(url)
