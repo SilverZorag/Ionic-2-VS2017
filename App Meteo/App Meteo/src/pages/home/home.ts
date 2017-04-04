@@ -1,7 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { Geolocation, Keyboard } from 'ionic-native';
 import { WeatherProvider } from '../../providers/weather';
-import { AlertController, LoadingController,  NavController, Platform } from 'ionic-angular';
+import { AlertController, LoadingController, NavController, Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
