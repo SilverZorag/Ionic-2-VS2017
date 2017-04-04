@@ -1,8 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { Geolocation, Keyboard } from 'ionic-native';
-import { WeatherProvider } from '../../providers/weather';
 import { AlertController, LoadingController, NavController, Platform } from 'ionic-angular';
-
+import { WeatherProvider } from '../../providers/weather';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,9 +20,7 @@ export class HomePage {
                 public nav: NavController,
                 public platform: Platform,
                 public weather: WeatherProvider,
-) {
-    
-  }
+) { }
 
     ionViewDidLoad() {
         //Once the main view loads
