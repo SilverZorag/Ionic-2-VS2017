@@ -24,7 +24,10 @@ export class HomePage {
 ) {
     
   }
-  
+       onLink(url: string) {
+        window.open(url);
+       }
+
     ionViewDidLoad() {
         //Once the main view loads
         //and after the platform is ready...

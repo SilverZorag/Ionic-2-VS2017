@@ -4,7 +4,6 @@
   <description>An Ionic Framework and Cordova project for Visual Studio</description>
   <author email="vscordovatools@microsoft.com" href="http://taco.visualstudio.com">CidFab</author>
   <content src="index.html" />
-  <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
   <vs:template-name>Ionic 2 Blank</vs:template-name>
   <access origin="*" />
   <allow-intent href="http://*/*" />
@@ -104,4 +103,8 @@
   <preference name="android-maxSdkVersion" value="25" />
   <preference name="android-targetSdkVersion" value="22" />
   <preference name="deployment-target" value="10" />
+  <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
+  <engine name="android" spec="5.2.1" />
+  <engine name="ios" spec="4.2.0" />
+  <engine name="windows" spec="4.4.2" />
 </widget>
