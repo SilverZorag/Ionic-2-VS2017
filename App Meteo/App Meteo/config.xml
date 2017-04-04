@@ -5,7 +5,6 @@
   <author email="vscordovatools@microsoft.com" href="http://taco.visualstudio.com">CidFab</author>
   <content src="index.html" />
   <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
-  <vs:is-from-base-template>false</vs:is-from-base-template>
   <vs:template-name>Ionic 2 Blank</vs:template-name>
   <access origin="*" />
   <allow-intent href="http://*/*" />
