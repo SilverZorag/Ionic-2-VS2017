@@ -1,4 +1,5 @@
 ﻿import { WeatherProvider } from '../providers/Weather';
+import { WeatherDetailPage } from '../pages/weatherdetail/weatherdetail';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -7,7 +8,8 @@ import { HomePage } from '../pages/home/home';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+      HomePage,
+      WeatherDetailPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -15,8 +17,9 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+      HomePage,
+    WeatherDetailPage
   ],
-  providers: [WeatherProvider, {provide: ErrorHandler, useClass: IonicErrorHandler }]
+  providers: [Weather, {provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
 export class AppModule {}

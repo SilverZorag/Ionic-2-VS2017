@@ -2,6 +2,7 @@
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { WeatherProvider } from '../../providers/Weather';
 /*
   Generated class for the Weather provider.
 

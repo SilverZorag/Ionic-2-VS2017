@@ -1,7 +1,8 @@
 ﻿import { Component } from '@angular/core';
 import { AlertController, LoadingController, NavController, Platform } from 'ionic-angular';
 import { Geolocation, Keyboard } from 'ionic-native';
-import { WeatherProvider } from '../../providers/weather';
+import { WeatherProvider } from '../../providers/Weather';
+import { WeatherDetailPage } from '../weatherdetail/weatherdetail';
 
 
 @Component({
@@ -137,6 +138,11 @@ export class HomePage {
             buttons: [{ text: 'Sorry' }]
         });
         alert.present();
+    }
+    viewForecast(item) {
+        //When the user selects one of the Forecast periods,
+        //open up the details page for the selected period.
+        this.nav.push(WeatherDetailPage, { 'forecast': item });
     }
 
 }
