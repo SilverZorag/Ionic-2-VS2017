@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 export class Weather {
 
     private weatherEndpoint = 'http://api.openweathermap.org/data/2.5/';
-    private weatherKey = ' ';
+    private weatherKey = '65971022274758f2ad9420919c6e49d9';
 
     constructor(public http: Http) {
         console.log('Hello Weather Provider');
